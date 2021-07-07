@@ -1,0 +1,31 @@
+Espero tengan un excelente día, 
+aquí se encuentra la prueba de 
+desarrollo, acontinuación daré 
+las instrucciones para ejecutar 
+el proyecto de forma correcta
+
+
+Programas requeridos:
+composer
+xampp
+
+Pasos:
+
+1. Ejecutar dentro de la raiz del proyecto el comando "composer install"
+
+	Con el fin de instalar la carpeta vendor y 
+	hacer que el proyecto funcione correctamente
+
+2. Iniciar el servidor Xampp
+
+3. Crear la base de datos "crud"
+	
+4. Crear las tablas en la base de datos	
+
+	Hay dos formas de crear las tablas en la base de datos:
+
+	1. Ejecutar el compando "php artisan migrate"
+	2. Importar el archivo sql que se encuentra en la raiz del proyecto llamado "crud.sql"
+
+
+5. Ejecutar el comando "php artisan serve" para correr el proyecto de forma local
