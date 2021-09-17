@@ -24,7 +24,6 @@ Route::get('/listar', function () {
 });
 Route::post('/filter', function (Request $r) {
     
-
     $data = User::
     where(function ($query) use ($r) {
         if (isset($r['name'])) {
@@ -49,7 +48,6 @@ Route::post('/filter', function (Request $r) {
     return response()->json([
         'data' => $data
     ]);
-
 
     return view('list')->with(['data' => $data]);
 });
