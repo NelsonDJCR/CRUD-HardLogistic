@@ -27,7 +27,7 @@ class UserController extends Controller
             'lastname'=>'required|max:15|alpha|min:3',
             'dni'=>'required|integer|unique:users,dni|',
             'address'=>'required|',
-            'phone'=>'required|integer',
+            'phone'=>'required|integer|digits:10',
 
         ];
         $validator = Validator::make(request()->all(), $rules);

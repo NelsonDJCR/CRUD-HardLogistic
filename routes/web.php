@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::apiResource('/hello', UserController::class);
 Route::get('/', function () {
     return view('welcome');
 });
