@@ -20,4 +20,32 @@ class User extends Authenticatable
     ];
 
 
+    // Obtener Solo una columna especifica
+    public static function getNames()
+    {
+        $registers = self::orderBy('name')->get();
+        $list = [];
+        foreach ($registers as $register) {
+            $list[$register->id] = $register->name;
+        }
+        return $list;
+    }
+
+    // All records
+    public static function getList()
+    {
+        return self::all()->where('state', 1);
+    }
+
+    public function getNameState()
+    {
+        switch ($this->state) {
+            case '1':
+                return 'Activo';
+                break;
+            case '0':
+                return 'Inactive';
+                break;
+        }
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -52,8 +53,8 @@ class UserController extends Controller
         $rules = [
             'name'=>'required|max:15|alpha|min:3',
             'lastname'=>'required|max:15|alpha|min:3',
-            'dni'=>'required|integer',
-            'address'=>'required|',
+            'dni'=>'required|min:3|max:12|unique:users,dni,'.request()->id,
+            'address'=>'required',
             'phone'=>'required|integer',
         ];
         $validator = Validator::make(request()->all(), $rules);
@@ -63,7 +64,7 @@ class UserController extends Controller
         if (User::find(request()->id)->update(request()->all())) {
             return response()->json([
                 'code' =>200,
-                'data' => User::orderBy('id','DESC')->get()
+                'data' => User::orderBy('id','DESC')->get(),
             ]);
         }
     }
@@ -79,8 +80,5 @@ class UserController extends Controller
         }
         
     }
-    public function listar()
-    {
-        
-    }
+  
 }
